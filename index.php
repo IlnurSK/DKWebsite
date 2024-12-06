@@ -8,9 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-<p>This is a <?php echo "awesome"; ?> paragraph!</p>
+
 <?php
-    echo "This is ALSO a paragraph!";
+
+    echo $_SERVER["DOCUMENT_ROOT"] . "<br>";
+    echo $_SERVER["PHP_SELF"] . "<br>";
+    echo $_SERVER["SERVER_NAME"] . "<br>";
+    echo $_SERVER["REQUEST_METHOD"] . "<br>";
+    echo $_GET["name"] . "<br>";
+    echo $_GET["lastname"] . "<br>";
+    echo $_REQUEST["name"] . "<br>";
+    echo $_FILES["name"] . "<br>";
+    echo $_COOKIE["name"] . "<br>";
+    $_SESSION["username"] = "GEX";
+    echo $_SESSION["username"] . "<br>";
+    $_ENV[""];
+
 ?>
+
 </body>
 </html>
