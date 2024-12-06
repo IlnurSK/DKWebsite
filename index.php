@@ -8,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+<p>This is a <?php echo "awesome"; ?> paragraph!</p>
 <?php
-    echo "Hello World! (again again again)";
+    echo "This is ALSO a paragraph!";
 ?>
 </body>
 </html>
