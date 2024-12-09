@@ -5,26 +5,31 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sirazhev Ilnur Portfolio</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<section class="wrapper-main">
+    <main>
+        <form action="includes/formhandler.php" method="post">
+            <label for="firstname">Firstname?</label>
+            <input id="firstname" type="text" name="firstname" placeholder="Firstname...">
 
-<?php
+            <label for="lastname">Lastname?</label>
+            <input id="lastname" type="text" name="lastname" placeholder="Lastname...">
 
-    echo $_SERVER["DOCUMENT_ROOT"] . "<br>";
-    echo $_SERVER["PHP_SELF"] . "<br>";
-    echo $_SERVER["SERVER_NAME"] . "<br>";
-    echo $_SERVER["REQUEST_METHOD"] . "<br>";
-    echo $_GET["name"] . "<br>";
-    echo $_GET["lastname"] . "<br>";
-    echo $_REQUEST["name"] . "<br>";
-    echo $_FILES["name"] . "<br>";
-    echo $_COOKIE["name"] . "<br>";
-    $_SESSION["username"] = "GEX";
-    echo $_SESSION["username"] . "<br>";
-    $_ENV[""];
+            <label for="favouritepet">Favourite Pet?</label>
+            <select name="favouritepet" id="favouritepet">
+                <option value="none">None</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+            </select>
 
-?>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</section>
 
 </body>
 </html>

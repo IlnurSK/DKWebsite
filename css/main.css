@@ -1,0 +1,49 @@
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+body {
+    font-family: Roboto;
+    background-color: #191919;
+}
+
+.wrapper-main {
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Ставим элементы друг под другом */
+    align-items: center; /* Горизонтальное центрирование */
+    justify-content: center; /* Вертикальное центрирование */
+    height: 100vh; /* Высота контейнера равна высоте окна браузера */
+    text-align: center;
+}
+
+label {
+    color: white;
+}
+input[placeholder], select {
+    background-color: #4e4e4e;
+    color: #959595;
+}
+
+button {
+    margin: 10px auto;
+    background-color: dodgerblue;
+    color: white;
+}
+
+input,button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type=text], textarea, select, button {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
