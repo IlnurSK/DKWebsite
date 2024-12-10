@@ -11,38 +11,40 @@
 <body>
 
     <?php
-    // String operator
 
-    $a = "Hello";
-    $b = "World";
-    $c = $a . $b;
-    echo $c . "<br>";
-
-    // Logical operators
-
-    $a = 4;
+    $bool = true;
+    $a = "1";
     $b = 4;
 
-    $c = 2;
-    $d = 6;
+    $result = match ($a) {
+        1, 3, 5 => "Variable a is equal to one!",
+        2 => "Variable a is equal to two!",
+        default => "None were a match",
+    };
 
-    if ($a == $b || $c == $d && $a == $c) {
-        echo "This statement is true!". "<br>";
+    echo $result;
+
+    switch ($a) {
+        case 1:
+            echo "The first case is correct";
+            break;
+        case 2:
+            echo "The second case is correct";
+            break;
+        case 3:
+            echo "The third case is correct";
+            break;
+        default:
+            echo "None of the conditions were true!";
     }
 
-    // Incrementing/decrementing operators
-
-    $a = 1;
-    echo $a . "<br>";
-
-    echo ++$a . "<br>";
-    echo $a . "<br> <br>";
-
-    echo --$a . "<br>";
-    echo $a . "<br> <br>";
-
-    echo $a++ . "<br>";
-    echo $a . "<br> <br>";
+    if ($a < $b && !$bool) {
+        echo "First condition is true!";
+    } elseif ($a < $b && $bool) {
+        echo "Second condition is true!";
+    } else {
+        echo "None of the conditions were true!";
+    }
 
     ?>
 
