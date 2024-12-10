@@ -11,73 +11,78 @@
 </head>
 <body>
 <div class="wrapper-main">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-        <input type="number" name="num01" placeholder="Number one" required>
-        <select name="operator">
-            <option value="add">+</option>
-            <option value="subtract">-</option>
-            <option value="multiply">*</option>
-            <option value="divide">/</option>
-        </select>
-        <input type="number" name="num02" placeholder="Number two" required>
-        <button>Calculate</button>
-
-    </form>
 
     <?php
+    const HTML_EOL = "<br>\n";
+    $fruits = array("Apple", "Banana", "Cherry");
+    $fruits = [
+            "Apple", // 0
+            "Banana", // 1
+            "Cherry" // 2
+    ];
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Grab data from inputs
-        $num01 = filter_input(INPUT_POST, "num01", FILTER_SANITIZE_NUMBER_FLOAT);
-        $num02 = filter_input(INPUT_POST, "num02", FILTER_SANITIZE_NUMBER_FLOAT);
-        $operator = htmlspecialchars($_POST["operator"]);
+    $fruits[] = "Orange";
 
-        // Error handlers
+    echo $fruits[3] . HTML_EOL;
 
-        $errors = false;
+//    unset($fruits[1]);
+    array_splice($fruits, 0,1);
 
-        if (!isset($num01) || !isset($num02) || empty($operator)) {
-            echo "<p class='calc-error'> Fill in all fields!</p>";
-            $errors = true;
-        }
+    echo $fruits[1] . HTML_EOL;
 
-        if (!is_numeric($num01) || !is_numeric($num02)) {
-            echo "<p class='calc-error'> Only write numbers!</p>";
-            $errors = true;
-        }
+    $tasks = [
+            "laundry" => "Daniel",
+        "trash" => "Frida",
+        "vacuum" => "Basse",
+        "dishes" => "Bella"
+    ];
 
-        if (($operator == "divide") && $num02 == 0) {
-            echo "<p class='calc-error'> Division by Zero!</p>";
-            $errors = true;
-        }
+    echo $tasks["laundry"] . HTML_EOL;
+    print_r($tasks["laundry"]);
+    echo HTML_EOL;
 
-        // Calculate the numbers if no errors
-        if (!$errors) {
-            $value = 0;
+    echo count($tasks) . HTML_EOL;
 
-            switch ($operator) {
-                case "add":
-                    $value = $num01 + $num02;
-                    break;
-                case "subtract":
-                    $value = $num01 - $num02;
-                    break;
-                case "multiply":
-                    $value = $num01 * $num02;
-                    break;
-                case "divide":
-                    $value = $num01 / $num02;
-                    break;
-                default:
-                    echo "<p class='calc-error'> Something went HORRIBLY wrong!</p>";
-            }
+//    sort($tasks);
+//    print_r($tasks);
+//    echo HTML_EOL;
 
-            echo "<p class='calc-result'>Result = " . $value . "</p>";
+    $fruits = array("Apple", "Banana", "Cherry");
+    array_push($fruits, "Mango");
+    print_r($fruits);
+    echo HTML_EOL;
 
-        }
+    $tasks["dusting"] = "Tara";
+    print_r($tasks);
+    echo HTML_EOL;
 
-    }
+    $fruits = ["Apple", "Banana", "Cherry"];
+    $test = ["Mango", "Strawberry"];
+
+    array_splice($fruits, 2,0,$test);
+    print_r($fruits);
+    echo HTML_EOL;
+
+
+    $food = [
+            array("apple", "mango"),
+        "banana",
+        "cherry"
+    ];
+
+    echo $food[0][0] . HTML_EOL;
+
+    $food = [
+        "fruits" => array("apple", "banana", "cherry"),
+        "meat" => array("chicken", "fish"),
+        "vegetables" => [
+                "cucumber" => 2,
+                "carrot" => 3
+        ]
+    ];
+
+    echo $food["vegetables"]["cucumber"] . HTML_EOL;
+
     ?>
 
 </div>
