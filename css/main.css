@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column; /* Ставим элементы друг под другом */
     align-items: center; /* Горизонтальное центрирование */
-    justify-content: center; /* Вертикальное центрирование */
+    /*justify-content: center; !* Вертикальное центрирование *!*/
     height: 100vh; /* Высота контейнера равна высоте окна браузера */
     text-align: center;
 }
@@ -47,4 +47,16 @@ input[type=text], textarea, select, button {
 button:hover {
     background-color: bisque;
     cursor: pointer;
+}
+
+select {
+    margin-bottom: 10px;
+}
+
+.calc-error {
+    color: red;
+}
+
+.calc-result {
+    color: greenyellow;
 }

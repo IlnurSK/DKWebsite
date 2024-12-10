@@ -5,48 +5,81 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sirazhev Ilnur Portfolio</title>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div class="wrapper-main">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+        <input type="number" name="num01" placeholder="Number one" required>
+        <select name="operator">
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <input type="number" name="num02" placeholder="Number two" required>
+        <button>Calculate</button>
+
+    </form>
 
     <?php
 
-    $bool = true;
-    $a = "1";
-    $b = 4;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Grab data from inputs
+        $num01 = filter_input(INPUT_POST, "num01", FILTER_SANITIZE_NUMBER_FLOAT);
+        $num02 = filter_input(INPUT_POST, "num02", FILTER_SANITIZE_NUMBER_FLOAT);
+        $operator = htmlspecialchars($_POST["operator"]);
 
-    $result = match ($a) {
-        1, 3, 5 => "Variable a is equal to one!",
-        2 => "Variable a is equal to two!",
-        default => "None were a match",
-    };
+        // Error handlers
 
-    echo $result;
+        $errors = false;
 
-    switch ($a) {
-        case 1:
-            echo "The first case is correct";
-            break;
-        case 2:
-            echo "The second case is correct";
-            break;
-        case 3:
-            echo "The third case is correct";
-            break;
-        default:
-            echo "None of the conditions were true!";
+        if (!isset($num01) || !isset($num02) || empty($operator)) {
+            echo "<p class='calc-error'> Fill in all fields!</p>";
+            $errors = true;
+        }
+
+        if (!is_numeric($num01) || !is_numeric($num02)) {
+            echo "<p class='calc-error'> Only write numbers!</p>";
+            $errors = true;
+        }
+
+        if (($operator == "divide") && $num02 == 0) {
+            echo "<p class='calc-error'> Division by Zero!</p>";
+            $errors = true;
+        }
+
+        // Calculate the numbers if no errors
+        if (!$errors) {
+            $value = 0;
+
+            switch ($operator) {
+                case "add":
+                    $value = $num01 + $num02;
+                    break;
+                case "subtract":
+                    $value = $num01 - $num02;
+                    break;
+                case "multiply":
+                    $value = $num01 * $num02;
+                    break;
+                case "divide":
+                    $value = $num01 / $num02;
+                    break;
+                default:
+                    echo "<p class='calc-error'> Something went HORRIBLY wrong!</p>";
+            }
+
+            echo "<p class='calc-result'>Result = " . $value . "</p>";
+
+        }
+
     }
-
-    if ($a < $b && !$bool) {
-        echo "First condition is true!";
-    } elseif ($a < $b && $bool) {
-        echo "Second condition is true!";
-    } else {
-        echo "None of the conditions were true!";
-    }
-
     ?>
 
+</div>
 </body>
 </html>
