@@ -9,15 +9,42 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<?php
+
+    <?php
     // String operator
 
     $a = "Hello";
     $b = "World";
     $c = $a . $b;
-    echo $c;
+    echo $c . "<br>";
 
-?>
+    // Logical operators
+
+    $a = 4;
+    $b = 4;
+
+    $c = 2;
+    $d = 6;
+
+    if ($a == $b || $c == $d && $a == $c) {
+        echo "This statement is true!". "<br>";
+    }
+
+    // Incrementing/decrementing operators
+
+    $a = 1;
+    echo $a . "<br>";
+
+    echo ++$a . "<br>";
+    echo $a . "<br> <br>";
+
+    echo --$a . "<br>";
+    echo $a . "<br> <br>";
+
+    echo $a++ . "<br>";
+    echo $a . "<br> <br>";
+
+    ?>
 
 </body>
 </html>

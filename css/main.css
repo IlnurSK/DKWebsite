@@ -3,7 +3,7 @@
     src: url(../fonts/Roboto-Regular.ttf);
 }
 
-body[text] {
+body {
     font-family: Roboto;
     background-color: #191919;
     color: white;
