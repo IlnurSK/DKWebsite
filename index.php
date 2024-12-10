@@ -9,27 +9,15 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<section class="wrapper-main">
-    <main>
-        <form action="includes/formhandler.php" method="post">
-            <label for="firstname">Firstname?</label>
-            <input id="firstname" type="text" name="firstname" placeholder="Firstname...">
+<?php
+    // String operator
 
-            <label for="lastname">Lastname?</label>
-            <input id="lastname" type="text" name="lastname" placeholder="Lastname...">
+    $a = "Hello";
+    $b = "World";
+    $c = $a . $b;
+    echo $c;
 
-            <label for="favouritepet">Favourite Pet?</label>
-            <select name="favouritepet" id="favouritepet">
-                <option value="none">None</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="bird">Bird</option>
-            </select>
-
-            <button type="submit">Submit</button>
-        </form>
-    </main>
-</section>
+?>
 
 </body>
 </html>
