@@ -18,22 +18,92 @@ declare(strict_types=1);
     <?php
     const HTML_EOL = "<br>\n";
 
-    function sayHello(string $name = "Basse")
+    // Scope - Области видимости
+
+   $test = "Il'nur";
+
+   echo $test . HTML_EOL;
+
+    function myFunction()
     {
-        return "Hello "  . $name . "!". HTML_EOL;
+        // Define a local variable
+        $localVar = "Hello, world!";
+
+        // Use the local variable
+        return $localVar; // Output: Hello, world!
+   }
+
+   echo myFunction() . HTML_EOL;
+//    echo $localVar . PHP_EOL; // Warning: Undefined variable $localVal
+
+
+    // доступ к глобальной переменной через ключевое слово "global"
+
+    $test = "Il'nur";
+
+    function myFunction2()
+    {
+        global $test;
+
+        // Define a local variable
+        $localVar = "Hello, world!";
+
+        // Use the local variable
+        return $test;
     }
 
-    $test = sayHello("1");
-    echo $test;
+    echo myFunction2() . HTML_EOL;
 
-    function calculator(int $num01, int $num02)
+    // доступ к глобальной переменной через массив глобальных переменных $GLOBALS
+
+    $test = "Il'nur";
+
+    function myFunction3()
     {
-        $result = $num01 + $num02;
-        return $result;
+        // Define a local variable
+        $localVar = "Hello, world!";
+
+        // Use the local variable
+        return $GLOBALS["test"];
     }
 
-    $test = calculator(2,5);
-    echo $test . HTML_EOL;
+    echo myFunction3() . HTML_EOL;
+
+    // статическая область видимости
+
+    function myFunctionStatic()
+    {
+        // Declare a static variable
+        static $staticVar = 0;
+
+        // Increment the static variable
+        $staticVar++;
+
+        // Use the static variable
+        return $staticVar;
+    }
+
+    echo myFunctionStatic() . HTML_EOL;
+    echo myFunctionStatic() . HTML_EOL;
+    echo myFunctionStatic() . HTML_EOL;
+
+    // Области видимости объектов
+
+    class MyClass
+    {
+        // Define a class variable
+        public $classVar  = "Hello, world!";
+
+        // Define a class method
+        public function myMethod()
+        {
+            // Use the class variable
+            echo $this->classVar; // Output: Hello, world!
+        }
+    }
+
+    echo (new MyClass())->classVar . HTML_EOL;
+
 
     ?>
 
