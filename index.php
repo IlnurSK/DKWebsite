@@ -18,44 +18,8 @@ declare(strict_types=1);
     <?php
     const HTML_EOL = "<br>\n";
 
-    // Создание базы данных в MySQL (заходим на localhost/phpmyadmin/)
-    /* Типы данных
-     * INT -2147483648 - 2147483647 (числовые 4 байта)
-     * BIGINT (числовые 8 байт)
-     * INT(11) - в скобках ограничение на ширину символов при отображении данных
-     * FLOAT - числа с плавающей точкой (4 байта)
-     * DOUBLE - числа с плавающей точкой (8 байт)
-     * VARCHAR(30) - текстовый тип данных, в скобках ограничение по количеству сохраняемых символов (255 - для большинства БД)
-     * TEXT - большой объем текстовых данных (сообщения, публикации, статьи)
-     * DATE 2023-05-14 - Даты
-     * DATETIME 2023-05-14 11:30:00
-     * INT(11) SIGNED/UNSIGNED - позволяет хранить только положительные числа     *
-     */
+    // INSERT, UPDATE & DELETE to Change Table Data
 
-    // Создаем таблицу USERS
-    /*
-    CREATE TABLE users (
-    id INT(11) NOT NULL AUTO_INCREMENT,
-    username VARCHAR(30) NOT NULL,
-    pwd VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
-    PRIMARY KEY (id)
-);
-    */
-
-    // Создаем таблицу COMMENTS
-    /*
-    CREATE TABLE comments (
-	id INT(11) NOT NULL AUTO_INCREMENT,
-    username VARCHAR(30) NOT NULL,
-    comment_text TEXT NOT NULL,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
-    users_id INT(11),
-    PRIMARY KEY (id),
-    FOREIGN KEY (users_id) REFERENCES users (id) ON DELETE SET NULL
-);
-     */
 
 
     ?>
