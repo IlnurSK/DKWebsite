@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calculator</title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -14,74 +14,53 @@
 
     <?php
     const HTML_EOL = "<br>\n";
-    $fruits = array("Apple", "Banana", "Cherry");
-    $fruits = [
-            "Apple", // 0
-            "Banana", // 1
-            "Cherry" // 2
-    ];
 
-    $fruits[] = "Orange";
+    // встроенные функции для работы со строками
 
-    echo $fruits[3] . HTML_EOL;
+    $string = "Hello World!";
 
-//    unset($fruits[1]);
-    array_splice($fruits, 0,1);
+    echo strlen($string) . HTML_EOL;
+    echo strpos($string, "Wo") . HTML_EOL;
+    echo str_replace("World", "Daniel", $string) . HTML_EOL;
+    echo strtolower($string) . HTML_EOL;
+    echo strtoupper($string) . HTML_EOL;
+    echo substr($string, 2, -2) . HTML_EOL;
+    print_r(explode(" ", $string)); echo HTML_EOL;
 
-    echo $fruits[1] . HTML_EOL;
+    // встроенные функции для работы с числами
 
-    $tasks = [
-            "laundry" => "Daniel",
-        "trash" => "Frida",
-        "vacuum" => "Basse",
-        "dishes" => "Bella"
-    ];
+    $number = -5.5;
 
-    echo $tasks["laundry"] . HTML_EOL;
-    print_r($tasks["laundry"]);
-    echo HTML_EOL;
+    echo abs($number) . HTML_EOL;
+    echo round($number) . HTML_EOL;
+    echo pow(2, 3) . HTML_EOL;
+    echo sqrt(16) . HTML_EOL;
+    echo rand(1, 100) . HTML_EOL;
 
-    echo count($tasks) . HTML_EOL;
+    // встроенные функции для работы с массивами
 
-//    sort($tasks);
-//    print_r($tasks);
-//    echo HTML_EOL;
+    $array = ["apple", "banana", "orange"];
 
-    $fruits = array("Apple", "Banana", "Cherry");
-    array_push($fruits, "Mango");
-    print_r($fruits);
-    echo HTML_EOL;
+    echo count($array) . HTML_EOL;
+    echo is_array($array) . HTML_EOL;
+    array_push($array, "kiwi");
+    print_r($array); echo HTML_EOL;
+    array_pop($array);
+    print_r($array); echo HTML_EOL;
+    print_r(array_reverse($array)); echo HTML_EOL;
 
-    $tasks["dusting"] = "Tara";
-    print_r($tasks);
-    echo HTML_EOL;
+    $array1 = ["apple", "banana", "orange"];
+    $array2 = ["kiwi"];
 
-    $fruits = ["Apple", "Banana", "Cherry"];
-    $test = ["Mango", "Strawberry"];
+    print_r(array_merge($array1, $array2)); echo HTML_EOL;
 
-    array_splice($fruits, 2,0,$test);
-    print_r($fruits);
-    echo HTML_EOL;
+    // встроенные функции для работы с датой и временем
 
+    echo date("Y-m-d H:i:s") . HTML_EOL;
+    echo time() . HTML_EOL;
 
-    $food = [
-            array("apple", "mango"),
-        "banana",
-        "cherry"
-    ];
-
-    echo $food[0][0] . HTML_EOL;
-
-    $food = [
-        "fruits" => array("apple", "banana", "cherry"),
-        "meat" => array("chicken", "fish"),
-        "vegetables" => [
-                "cucumber" => 2,
-                "carrot" => 3
-        ]
-    ];
-
-    echo $food["vegetables"]["cucumber"] . HTML_EOL;
+    $date = "2023-04-11 12:00:00";
+    echo strtotime($date) . HTML_EOL;
 
     ?>
 
