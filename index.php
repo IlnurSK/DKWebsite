@@ -16,94 +16,31 @@ declare(strict_types=1);
 <div class="wrapper-main">
 
     <?php
-    const HTML_EOL = "<br>\n";
+    const HTML_EOL = "<br>\n"; // а вот и ондна из них :)
 
-    // Scope - Области видимости
+    // Constants - Константы
 
-   $test = "Il'nur";
+    $name = "Il'nur";
+    $name = "Daniel";
+    echo $name . HTML_EOL;
 
-   echo $test . HTML_EOL;
+    define("PI", 3.14); // стандартный метод определения констант
+    const USER_NAME = "Il'nur"; // алтьтернативный метод определения констант
 
-    function myFunction()
+    echo PI . HTML_EOL;
+    echo USER_NAME . HTML_EOL;
+
+//    define("PI", 4.14); // Выведет Warning
+
+    define("NAME", "Il'nur");
+    define("IS_ADMIN", true);
+
+    function test()
     {
-        // Define a local variable
-        $localVar = "Hello, world!";
-
-        // Use the local variable
-        return $localVar; // Output: Hello, world!
-   }
-
-   echo myFunction() . HTML_EOL;
-//    echo $localVar . PHP_EOL; // Warning: Undefined variable $localVal
-
-
-    // доступ к глобальной переменной через ключевое слово "global"
-
-    $test = "Il'nur";
-
-    function myFunction2()
-    {
-        global $test;
-
-        // Define a local variable
-        $localVar = "Hello, world!";
-
-        // Use the local variable
-        return $test;
+        echo PI . HTML_EOL;
     }
 
-    echo myFunction2() . HTML_EOL;
-
-    // доступ к глобальной переменной через массив глобальных переменных $GLOBALS
-
-    $test = "Il'nur";
-
-    function myFunction3()
-    {
-        // Define a local variable
-        $localVar = "Hello, world!";
-
-        // Use the local variable
-        return $GLOBALS["test"];
-    }
-
-    echo myFunction3() . HTML_EOL;
-
-    // статическая область видимости
-
-    function myFunctionStatic()
-    {
-        // Declare a static variable
-        static $staticVar = 0;
-
-        // Increment the static variable
-        $staticVar++;
-
-        // Use the static variable
-        return $staticVar;
-    }
-
-    echo myFunctionStatic() . HTML_EOL;
-    echo myFunctionStatic() . HTML_EOL;
-    echo myFunctionStatic() . HTML_EOL;
-
-    // Области видимости объектов
-
-    class MyClass
-    {
-        // Define a class variable
-        public $classVar  = "Hello, world!";
-
-        // Define a class method
-        public function myMethod()
-        {
-            // Use the class variable
-            echo $this->classVar; // Output: Hello, world!
-        }
-    }
-
-    echo (new MyClass())->classVar . HTML_EOL;
-
+    test();
 
     ?>
 
