@@ -1,0 +1,36 @@
+/* Убираем отступы и внутренние поля у всех элементов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Наследуем шрифты для всех элементов */
+body, html {
+    font-family: sans-serif;
+    line-height: 1.5; /* Опционально, для улучшения читабельности текста */
+}
+
+/* Убираем подчёркивание у ссылок */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Убираем списочные стили */
+ul, ol {
+    list-style: none;
+}
+
+/* Сброс для таблиц */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Сброс изображений */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
