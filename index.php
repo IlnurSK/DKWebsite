@@ -1,3 +1,6 @@
+<?php
+declare(strict_types=1);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,52 +18,22 @@
     <?php
     const HTML_EOL = "<br>\n";
 
-    // встроенные функции для работы со строками
+    function sayHello(string $name = "Basse")
+    {
+        return "Hello "  . $name . "!". HTML_EOL;
+    }
 
-    $string = "Hello World!";
+    $test = sayHello("1");
+    echo $test;
 
-    echo strlen($string) . HTML_EOL;
-    echo strpos($string, "Wo") . HTML_EOL;
-    echo str_replace("World", "Daniel", $string) . HTML_EOL;
-    echo strtolower($string) . HTML_EOL;
-    echo strtoupper($string) . HTML_EOL;
-    echo substr($string, 2, -2) . HTML_EOL;
-    print_r(explode(" ", $string)); echo HTML_EOL;
+    function calculator(int $num01, int $num02)
+    {
+        $result = $num01 + $num02;
+        return $result;
+    }
 
-    // встроенные функции для работы с числами
-
-    $number = -5.5;
-
-    echo abs($number) . HTML_EOL;
-    echo round($number) . HTML_EOL;
-    echo pow(2, 3) . HTML_EOL;
-    echo sqrt(16) . HTML_EOL;
-    echo rand(1, 100) . HTML_EOL;
-
-    // встроенные функции для работы с массивами
-
-    $array = ["apple", "banana", "orange"];
-
-    echo count($array) . HTML_EOL;
-    echo is_array($array) . HTML_EOL;
-    array_push($array, "kiwi");
-    print_r($array); echo HTML_EOL;
-    array_pop($array);
-    print_r($array); echo HTML_EOL;
-    print_r(array_reverse($array)); echo HTML_EOL;
-
-    $array1 = ["apple", "banana", "orange"];
-    $array2 = ["kiwi"];
-
-    print_r(array_merge($array1, $array2)); echo HTML_EOL;
-
-    // встроенные функции для работы с датой и временем
-
-    echo date("Y-m-d H:i:s") . HTML_EOL;
-    echo time() . HTML_EOL;
-
-    $date = "2023-04-11 12:00:00";
-    echo strtotime($date) . HTML_EOL;
+    $test = calculator(2,5);
+    echo $test . HTML_EOL;
 
     ?>
 
