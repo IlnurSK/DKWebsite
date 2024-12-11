@@ -16,31 +16,48 @@ declare(strict_types=1);
 <div class="wrapper-main">
 
     <?php
-    const HTML_EOL = "<br>\n"; // а вот и ондна из них :)
+    const HTML_EOL = "<br>\n";
 
-    // Constants - Константы
+    // Loops - Циклы
 
-    $name = "Il'nur";
-    $name = "Daniel";
-    echo $name . HTML_EOL;
-
-    define("PI", 3.14); // стандартный метод определения констант
-    const USER_NAME = "Il'nur"; // алтьтернативный метод определения констант
-
-    echo PI . HTML_EOL;
-    echo USER_NAME . HTML_EOL;
-
-//    define("PI", 4.14); // Выведет Warning
-
-    define("NAME", "Il'nur");
-    define("IS_ADMIN", true);
-
-    function test()
+    // For
+    for ($i = 0; $i <= 10; $i++)
     {
-        echo PI . HTML_EOL;
+        echo "This is iteration number " . $i . HTML_EOL;
     }
 
-    test();
+    // While
+    $boolean = true;
+    while ($boolean) {
+        echo $boolean . HTML_EOL;
+        $boolean = false;
+    }
+
+    // Do While
+
+    $test = 10;
+    do {
+        echo $test . HTML_EOL;
+        $test++;
+    } while ($test < 10);
+
+    // Foreach
+
+    $fruits = array("Apple", "Banana", "Orange");
+
+    foreach ($fruits as $fruit) {
+        echo "This is a " . $fruit . HTML_EOL;
+    }
+
+    $fruits2 = [
+            "Apple" => "Red",
+        "Banana" => "Yellow",
+        "Orange" => "Orange"
+    ];
+
+    foreach ($fruits2 as $fruit => $color) {
+        echo "This is a " . $fruit . ", that has a color of " . $color . HTML_EOL;
+    }
 
     ?>
 
