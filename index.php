@@ -18,16 +18,18 @@ declare(strict_types=1);
     <?php
     const HTML_EOL = "<br>\n";
 
-    // INSERT, UPDATE & DELETE to Change Table Data
-    /* Втавка данных через INSERT в БД
-     * INSERT INTO users (username, pwd, email) VALUES ('Sirazhev', 'qwerty', 'sirazhev@mail.ru');
-     * INSERT INTO comments (username, comment_text, users_id) VALUES ('Sirazhev', 'This is a comment on a website', 1);
-     *
-     * Изменение данных через UPDATE
-     * UPDATE users SET username = 'Ivanov333', pwd = 'Ivanov444' WHERE id = 2;
-     *
-     * Удаление данных через DELETE
-     * DELETE FROM users WHERE id = 1;
+    // SELECT & JOIN Database Table Data in MySQL
+
+    /* Получение данных из таблицы через SELECT
+    SELECT username, email FROM users WHERE id = 2;
+    SELECT username, comment_text FROM comments WHERE users_id = 1;
+    SELECT * FROM comments WHERE users_id = 1;
+
+    Получение данных через объединение двух таблиц JOIN
+    SELECT * FROM users INNER JOIN comments ON users.id = comments.users_id;
+    SELECT users.username, comments.comment_text, comments.created_at FROM users INNER JOIN comments ON users.id = comments.users_id;
+    SELECT * FROM users LEFT JOIN comments ON users.id = comments.users_id;
+    SELECT * FROM users RIGHT JOIN comments ON users.id = comments.users_id;
      */
 
 
