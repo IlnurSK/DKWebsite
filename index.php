@@ -15,24 +15,32 @@ const HTML_EOL = "<br>\n";
 </head>
 <body>
 <div class="wrapper-main">
-<!--Создаем форму регистрации с базовыми полями-->
-    <h3>Signup</h3>
+<!--Создаем форму для изменения и удаления регистрационных данных-->
+    <h3>Change account</h3>
 
-    <form action="includes/formhandler.inc.php" method="post">
+    <form action="includes/userupdate.inc.php" method="post">
         <input type="text" name="username" placeholder="Username" id="username">
         <label for="username"></label>
-        <input type="text" name="pwd" placeholder="Password" id="pwd">
+        <input type="password" name="pwd" placeholder="Password" id="pwd">
         <label for="pwd"></label>
-        <input type="text" name="email" placeholder="E-Mail" id="email">
+        <input type="email" name="email" placeholder="E-Mail" id="email">
         <label for="email"></label>
-        <button type="submit">Signup</button>
+        <button>Update</button>
+    </form>
+
+    <h3>Delete account</h3>
+
+    <form action="includes/userdelete.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username" id="username">
+        <input type="password" name="pwd" placeholder="Password" id="pwd">
+        <button>Delete</button>
     </form>
 
 
     <?php
-    // Отправка данных с веб-сайта через метод POST в БД
+    // Удаление и редактирование данных в БД с веб-формы
 
-    // Создаем обработчик формы -> создаем файл includes/formhandler.inc.php
+    // Создаем обработчикики формы includes/userupdate.inc.php и includes/userdelete.inc.php
 
 
     ?>
