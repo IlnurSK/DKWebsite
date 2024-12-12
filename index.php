@@ -17,13 +17,11 @@ const HTML_EOL = "<br>\n";
 <div class="wrapper-main">
 
     <?php
-    // Подключение к БД используя PDO и настройка обработчика ошибок
+    // Изменение логина и пароля для подключения к БД MySQL
 
-
-
-
-
-
+    /*
+     * http://localhost/phpmyadmin/ -> Учетные записи -> root / localhost -> редактировать привилегии -> Change password
+     */
     ?>
 
 </div>
