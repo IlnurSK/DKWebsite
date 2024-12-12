@@ -19,6 +19,16 @@ declare(strict_types=1);
     const HTML_EOL = "<br>\n";
 
     // INSERT, UPDATE & DELETE to Change Table Data
+    /* Втавка данных через INSERT в БД
+     * INSERT INTO users (username, pwd, email) VALUES ('Sirazhev', 'qwerty', 'sirazhev@mail.ru');
+     * INSERT INTO comments (username, comment_text, users_id) VALUES ('Sirazhev', 'This is a comment on a website', 1);
+     *
+     * Изменение данных через UPDATE
+     * UPDATE users SET username = 'Ivanov333', pwd = 'Ivanov444' WHERE id = 2;
+     *
+     * Удаление данных через DELETE
+     * DELETE FROM users WHERE id = 1;
+     */
 
 
 
