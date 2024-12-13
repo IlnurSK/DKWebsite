@@ -15,32 +15,18 @@ const HTML_EOL = "<br>\n";
 </head>
 <body>
 <div class="wrapper-main">
-<!--Создаем форму для изменения и удаления регистрационных данных-->
-    <h3>Change account</h3>
+<!--Создаем форму для поиска данных в БД-->
 
-    <form action="includes/userupdate.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username" id="username">
-        <label for="username"></label>
-        <input type="password" name="pwd" placeholder="Password" id="pwd">
-        <label for="pwd"></label>
-        <input type="email" name="email" placeholder="E-Mail" id="email">
-        <label for="email"></label>
-        <button>Update</button>
-    </form>
+    <form class="searchform" action="search.php" method="post">
 
-    <h3>Delete account</h3>
-
-    <form action="includes/userdelete.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username" id="username">
-        <input type="password" name="pwd" placeholder="Password" id="pwd">
-        <button>Delete</button>
+        <label for="search">Search for user:</label>
+        <input type="text" name="usersearch" placeholder="Search..." id="search">
+        <button>Search</button>
     </form>
 
 
     <?php
-    // Удаление и редактирование данных в БД с веб-формы
-
-    // Создаем обработчикики формы includes/userupdate.inc.php и includes/userdelete.inc.php
+    // Получения данных с БД с веб-формы
 
 
     ?>
