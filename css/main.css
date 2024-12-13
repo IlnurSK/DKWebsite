@@ -39,7 +39,7 @@ input,button {
     margin-bottom: 10px;
 }
 
-input[type=text], textarea, select, button {
+input, textarea, select, button {
     padding: 10px;
     border-radius: 10px;
 }
