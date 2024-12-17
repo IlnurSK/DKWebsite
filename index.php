@@ -1,18 +1,12 @@
 <?php
-declare(strict_types=1);
-
-// Создание сессий
-
-session_start(); // Запуск сессии
 const HTML_EOL = "<br>\n";
 
-$_SESSION["username"] = "Sirazhev"; // Внесение данных в сессию
+require_once "config.php"; // подключение конфигурационного файла для сессий
 
-//unset($_SESSION["username"]); // Удаление данных из сессии
 
-//session_unset(); // Удаление всех данных из сессий
+// Базовые понятия безопасности в сессиях
 
-session_destroy(); // Уничтожение ID сессии (сработает при выходе из скрипта, например на другую страницу)
+
 
 ?>
 <!doctype html>
@@ -31,7 +25,6 @@ session_destroy(); // Уничтожение ID сессии (сработает
 
     <?php
 
-    echo $_SESSION["username"];
 
     ?>
 
