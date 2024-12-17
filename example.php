@@ -1,18 +1,8 @@
 <?php
 declare(strict_types=1);
 
-// Создание сессий
-
 session_start(); // Запуск сессии
 const HTML_EOL = "<br>\n";
-
-$_SESSION["username"] = "Sirazhev"; // Внесение данных в сессию
-
-//unset($_SESSION["username"]); // Удаление данных из сессии
-
-//session_unset(); // Удаление всех данных из сессий
-
-session_destroy(); // Уничтожение ID сессии (сработает при выходе из скрипта, например на другую страницу)
 
 ?>
 <!doctype html>
@@ -31,7 +21,11 @@ session_destroy(); // Уничтожение ID сессии (сработает
 
     <?php
 
+    // Копия индексной страницы для урока с сессиями
+
+
     echo $_SESSION["username"];
+
 
     ?>
 
