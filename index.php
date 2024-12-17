@@ -3,9 +3,7 @@ const HTML_EOL = "<br>\n";
 
 require_once "config.php"; // подключение конфигурационного файла для сессий
 
-
-// Базовые понятия безопасности в сессиях
-
+// Использование хэширования паролей
 
 
 ?>
@@ -23,10 +21,16 @@ require_once "config.php"; // подключение конфигурацион�
 <body>
 <div class="wrapper-main">
 
-    <?php
+<!--Форма регистрации-->
 
+   <h3>Signup</h3>
 
-    ?>
+    <form action="includes/formhandler.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="E-Mail">
+        <button>Signup</button>
+    </form>
 
 </div>
 </body>
