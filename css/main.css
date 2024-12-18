@@ -60,3 +60,12 @@ select {
 .calc-result {
     color: greenyellow;
 }
+
+.search {
+    background-color: white;
+    color: #191919;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+}

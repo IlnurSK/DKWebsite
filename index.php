@@ -1,6 +1,11 @@
 <?php
-declare(strict_types=1);
 const HTML_EOL = "<br>\n";
+
+require_once "config.php"; // подключение конфигурационного файла для сессий
+
+// Использование хэширования паролей
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,35 +20,17 @@ const HTML_EOL = "<br>\n";
 </head>
 <body>
 <div class="wrapper-main">
-<!--Создаем форму для изменения и удаления регистрационных данных-->
-    <h3>Change account</h3>
 
-    <form action="includes/userupdate.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username" id="username">
-        <label for="username"></label>
-        <input type="password" name="pwd" placeholder="Password" id="pwd">
-        <label for="pwd"></label>
-        <input type="email" name="email" placeholder="E-Mail" id="email">
-        <label for="email"></label>
-        <button>Update</button>
+<!--Форма регистрации-->
+
+   <h3>Signup</h3>
+
+    <form action="includes/formhandler.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="E-Mail">
+        <button>Signup</button>
     </form>
-
-    <h3>Delete account</h3>
-
-    <form action="includes/userdelete.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username" id="username">
-        <input type="password" name="pwd" placeholder="Password" id="pwd">
-        <button>Delete</button>
-    </form>
-
-
-    <?php
-    // Удаление и редактирование данных в БД с веб-формы
-
-    // Создаем обработчикики формы includes/userupdate.inc.php и includes/userdelete.inc.php
-
-
-    ?>
 
 </div>
 </body>
