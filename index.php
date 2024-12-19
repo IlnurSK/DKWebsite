@@ -1,9 +1,8 @@
 <?php
-const HTML_EOL = "<br>\n";
+require_once 'includes/signup_view.inc.php'; // подключаем представление формы регистрации
+require_once 'includes/config_session.inc.php'; // подключаем конфигурационный файл сессий
 
-require_once "config.php"; // подключение конфигурационного файла для сессий
-
-// Использование хэширования паролей
+// Создание системы входа на сайт (авторизация)
 
 
 ?>
@@ -21,16 +20,31 @@ require_once "config.php"; // подключение конфигурацион�
 <body>
 <div class="wrapper-main">
 
+    <!--Форма авторизации-->
+
+    <h3>Login</h3>
+
+    <form action="includes/login.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <button>Login</button>
+    </form>
+
 <!--Форма регистрации-->
 
    <h3>Signup</h3>
 
-    <form action="includes/formhandler.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="pwd" placeholder="Password">
-        <input type="text" name="email" placeholder="E-Mail">
+    <form action="includes/signup.inc.php" method="post">
+        <?php
+        signup_inputs(); // отображение формы регистрации, реализовываем в представлении signup_view.inc.php
+        ?>
         <button>Signup</button>
     </form>
+
+    <?php
+    check_signup_errors(); // функция проверки при регистрации, реализовываем в представлении signup_view.inc.php
+
+    ?>
 
 </div>
 </body>
