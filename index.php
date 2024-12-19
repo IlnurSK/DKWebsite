@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/signup_view.inc.php'; // подключаем представление формы регистрации
 require_once 'includes/config_session.inc.php'; // подключаем конфигурационный файл сессий
+require_once 'includes/login_view.inc.php'; //подключаем представление формы логина
 
 // Создание системы входа на сайт (авторизация)
 
@@ -20,31 +21,63 @@ require_once 'includes/config_session.inc.php'; // подключаем конф
 <body>
 <div class="wrapper-main">
 
-    <!--Форма авторизации-->
-
-    <h3>Login</h3>
-
-    <form action="includes/login.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="pwd" placeholder="Password">
-        <button>Login</button>
-    </form>
-
-<!--Форма регистрации-->
-
-   <h3>Signup</h3>
-
-    <form action="includes/signup.inc.php" method="post">
+    <!--Форма отображения имени пользователя если он залогинился-->
+    <h3>
         <?php
-        signup_inputs(); // отображение формы регистрации, реализовываем в представлении signup_view.inc.php
+
+        output_username(); // функция отображения имени пользователя, реализация в представлении login_view.inc.php
+
         ?>
-        <button>Signup</button>
-    </form>
+    </h3>
+
+    <!--Форма авторизации-->
+    <?php
+   if (!isset($_SESSION["user_id"])) { ?> <!-- реализуем логику отображения формы в зависимости от статуса (залогинен/не залогинен)      -->
+
+        <h3>Login</h3>
+
+        <form action="includes/login.inc.php" method="post">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="pwd" placeholder="Password">
+            <button>Login</button>
+        </form>
+    <?php } ?>
+
+
+    <?php
+    check_login_errors(); // функция проверки на ошибки при логине, реализовываем в представлении login_view.inc.php
+    ?>
+
+    <!--Форма регистрации-->
+    <?php
+    if (!isset($_SESSION["user_id"])) { ?> <!-- реализуем логику отображения формы в зависимости от статуса (залогинен/не залогинен)      -->
+
+        <h3>Signup</h3>
+
+        <form action="includes/signup.inc.php" method="post">
+            <?php
+            signup_inputs(); // отображение формы регистрации, реализовываем в представлении signup_view.inc.php
+            ?>
+            <button>Signup</button>
+        </form>
+    <?php } ?>
+
 
     <?php
     check_signup_errors(); // функция проверки при регистрации, реализовываем в представлении signup_view.inc.php
 
     ?>
+
+    <!--Форма выхода из системы-->
+    <?php
+    if (isset($_SESSION["user_id"])) { ?> <!-- реализуем логику отображения формы в зависимости от статуса (залогинен/не залогинен)      -->
+
+        <h3>Logout</h3>
+
+        <form action="includes/logout.inc.php" method="post">
+            <button>Logout</button>
+        </form>
+    <?php } ?>
 
 </div>
 </body>
