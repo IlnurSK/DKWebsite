@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 // Функция отображения полей ввода при регистрации
-function signup_inputs()
+function signup_inputs(): void
 {
     // проверяем ввели ли ранее имя пользователя в $_SESSION["signup_data"]["username"] и не было ли ошибок совпадений имени пользователя в БД $_SESSION["errors_signup"]["username_taken"]
     if (isset($_SESSION["signup_data"]["username"]) && !isset($_SESSION["errors_signup"]["username_taken"])) {
@@ -24,7 +24,7 @@ function signup_inputs()
 }
 
 // Функция проверки наличия ошибок при регистрации
-function check_signup_errors()
+function check_signup_errors(): void
 {
     if (isset($_SESSION["errors_signup"])) { // если в массиве $_SESSION["errors_signup"] есть переменные ошибок, выводим ее
         $errors = $_SESSION["errors_signup"];
