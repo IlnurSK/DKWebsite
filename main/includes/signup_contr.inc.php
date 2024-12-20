@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 // Создаем функцию проверки - введены ли данные пользователем
-function is_input_empty(string $username, string $pwd, string $email)
+function is_input_empty(string $username, string $pwd, string $email): bool
 {
     if (empty($username) || empty($pwd) || empty($email)) {
         return true;
@@ -13,7 +13,7 @@ function is_input_empty(string $username, string $pwd, string $email)
 }
 
 // Создаем функцию проверки - действительна ли введенная электронная почта
-function is_email_invalid(string $email)
+function is_email_invalid(string $email): bool
 {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // проверяем через filter_var, является ли введенная почта FILTER_VALIDATE_EMAIL
         return true;
@@ -23,7 +23,7 @@ function is_email_invalid(string $email)
 }
 
 // Создаем функцию проверки - существует ли такой пользователь в БД
-function is_username_taken(object $pdo, string $username)
+function is_username_taken(object $pdo, string $username): bool
 {
     if (get_username($pdo, $username)) { // функция получения имени пользователя из БД, реализовываем в модели - signup_model.inc.php
         return true;
@@ -33,7 +33,7 @@ function is_username_taken(object $pdo, string $username)
 }
 
 // Создаем функцию проверки - зарегистрирована ли электронная почта в БД
-function is_email_registered(object $pdo, string $email)
+function is_email_registered(object $pdo, string $email): bool
 {
     if (get_email($pdo, $email)) { // функция получения электронной почты из БД, реализовываем в модели - signup_model.inc.php
         return true;
@@ -43,7 +43,7 @@ function is_email_registered(object $pdo, string $email)
 }
 
 // Функция создания нового пользователя с сохранением в БД
-function create_user(object $pdo, string $username, string $pwd, string $email)
+function create_user(object $pdo, string $username, string $pwd, string $email): void
 {
     set_user($pdo, $username, $pwd, $email); // функция установки пользователя, реализовываем в модели - signup_model.inc.php
 }
